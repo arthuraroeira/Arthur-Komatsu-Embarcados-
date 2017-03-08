@@ -30,3 +30,5 @@ flash embutidos. É bastante utilizado para prototipagem de projetos, mas evita-
 ->Raspberry Pi: Possui um Hardware melhor que o Arduino, já que possui funções como saída de vídeo e um processador de 700 MHz. 
 
 5. Por que usamos o Raspberry Pi na disciplina, ao invés de outro system on chip?
+O Raspberry Pi será utilizado por causa de sua arquitetura do hardware. O processador ARM possui capacidade de embutir um sistema operacional
+como o Linux, além de proporcionar uma placa de vídeo integrada, a qual pode proporcionar maior facilidade na implementação do interface.
