@@ -72,13 +72,13 @@ A seta para cima.
   grep -rnw [diretorio] -e [texto]
   
   (q) Ordenar informações em um arquivo-texto.
-  
+  sort [nome_do_arquivo]
   
   (r) Substituir ocorrências de palavras-chave em um arquivo-texto.
-  
+  sed -i [s/original/novo/g] [nome_do_arquivo]
   
   (s) Conferir se dois arquivos são iguais.
-  
+  cmp --silent [antigo] [novo] || echo "arquivos sao diferentes"
   
   (t) Escrever algo na tela.
-  
+  echo "frase"
