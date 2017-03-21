@@ -47,6 +47,8 @@ Para todas as questões, compile-as com o gcc e execute-as via terminal.
 	$ Nome: Eu
 	$ Idade: 30 anos
 	$
+	
+	oi
 
 4. Crie uma função que retorna o tamanho de um arquivo, usando o seguinte protótipo:
 
