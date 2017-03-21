@@ -3,15 +3,43 @@ Data: 16/03/2017
 Para todas as questões, compile-as com o gcc e execute-as via terminal.
 
 1. Crie um código em C para escrever "Ola mundo!" em um arquivo chamado 'ola_mundo.txt'.
+	#include<stdio.h>
+
+	int main()
+	{
+		FILE * fp = fopen("Ola_mundo.txt", "w");
+		fputs("Ola mundo!\n", fp);
+		fclose(fp);
+		return 0;
+	}
 
 2. Crie um código em C que pergunta ao usuário seu nome e sua idade, e escreve este conteúdo em um arquivo com o seu nome e extensão '.txt'. Por exemplo, considerando que o código criado recebeu o nome de 'ola_usuario_1':
 	$ ./ola_usuario_1
 	$ Digite o seu nome: Eu
 	$ Digite a sua idade: 30
 	$ cat Eu.txt
-	$ Nome: Eu
+	$ Nome: Eu2. Crie um c
 	$ Idade: 30 anos
 	$
+
+	#include<stdio.h>
+
+	int main()
+	{
+		char Nome[50], buf[0x100];
+		int idade;
+
+		printf("Digite o seu nome: ");
+		scanf("%s", Nome);
+		printf("Digite a sua idade: ");
+		scanf("%d", &idade);
+
+		snprintf(buf, sizeof(buf), "%s.txt", Nome);
+		FILE *fp = fopen(buf, "w");
+
+		fprintf(fp, "Nome: %s\nIdade: %d\n", Nome,  idade);
+		return 0;
+	}
 
 3. Crie um código em C que recebe o nome do usuário e e sua idade como argumentos de entrada (usando as variáveis argc e *argv[]), e escreve este conteúdo em um arquivo com o seu nome e extensão '.txt'. Por exemplo, considerando que o código criado recebeu o nome de 'ola_usuario_2':
 	$ ./ola_usuario_2 Eu 30
