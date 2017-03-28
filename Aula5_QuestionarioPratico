@@ -22,12 +22,62 @@ Para todas as questões, utilize as funções da norma POSIX (open(), close(), w
 	$ Nome: Eu
 	$ Idade: 30 anos
 	
+	#include <stdio.h>	// Para a funcao printf()
+	#include <fcntl.h>	// Para a funcao open()
+	#include <unistd.h>	// Para a funcao close()
+	#include <string.h>
 
+	int main(int argc, const char * argv[])
+	{
+		char Nome[50], FileName[53], Buffer[100] = "Nome: ", str[10];
+		int idade;
+
+		printf("Digite o seu nome: ");
+		scanf("%s", Nome);
+		printf("Digite a sua idade: ");
+		scanf("%d", &idade);
+		strcpy(FileName, Nome);
+		strcat(FileName, ".txt");
+
+		strcat(Buffer, Nome);
+		strcat(Buffer, "\nIdade: ");
+		sprintf(str, "%d", idade);
+		strcat(Buffer, str);
+		strcat(Buffer, "\n\0");
+
+		write(open (FileName, O_WRONLY | O_CREAT, S_IRWXU), Buffer, 50);
+
+		return 0;
+	}
+	
 3. Crie um código em C que recebe o nome do usuário e e sua idade como argumentos de entrada (usando as variáveis argc e *argv[]), e escreve este conteúdo em um arquivo com o seu nome e extensão '.txt'. Por exemplo, considerando que o código criado recebeu o nome de 'ola_usuario_2':
 	$ ./ola_usuario_2 Eu 30
 	$ cat Eu.txt
 	$ Nome: Eu
 	$ Idade: 30 anos
+	
+	#include <stdio.h>	// Para a funcao printf()
+	#include <fcntl.h>	// Para a funcao open()
+	#include <unistd.h>	// Para a funcao close()
+	#include <string.h>
+
+	int main(int argc, char *argv[])
+	{
+
+		char Nome[50], FileName[53], Buffer[100] = "Nome: ";
+
+		strcpy(FileName, argv[1]);
+		strcat(FileName, ".txt");
+
+		strcat(Buffer, argv[1]);
+		strcat(Buffer, "\nIdade: ");
+		strcat(Buffer, argv[2]);
+		strcat(Buffer, "\n\0");
+
+		write(open (FileName, O_WRONLY | O_CREAT, S_IRWXU), Buffer, 50);
+
+		return 0;
+	}
 	
 
 4. Crie uma função que retorna o tamanho de um arquivo, usando o seguinte protótipo:
