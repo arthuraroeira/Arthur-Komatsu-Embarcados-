@@ -48,7 +48,24 @@ do Unix e outros sistemas operacionais.
 
 3. Considerando a norma POSIX, responda:
 	(a) Quais são as funções (e seus protótipos) para abrir e fechar arquivos?
+	
+	abrir: int fd = open(const char *path, int o flag, ...);
+	fechar: int close(int fildes);
+	
 	(b) Quais são as funções (e seus protótipos) para escrever em arquivos?
+	
+	ssize_t write(int fildes, void *buf, size_t nbyte);
+	
 	(c) Quais são as funções (e seus protótipos) para ler arquivos?
+	
+	ssize_t read(int fildes, void *buf, size_t nbyte);
+	
 	(d) Quais são as funções (e seus protótipos) para reposicionar um ponteiro para arquivo?
+	
+	off_t lseek(int fd, off_t offset, int whence);
+	
 	(e) Quais bibliotecas devem ser incluídas no código para poder utilizar as funções acima?
+	
+	#include<unistd.h>
+	#include<fcntl.h>
+	#include<termois.h>
